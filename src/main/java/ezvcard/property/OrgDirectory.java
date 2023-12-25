@@ -59,7 +59,7 @@ import ezvcard.VCardVersion;
  * @see <a href="http://tools.ietf.org/html/rfc6715#page-6">RFC 6715 p.6</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class OrgDirectory extends UriProperty implements HasAltId {
+public class OrgDirectory extends UriProperty implements HasAltId, IPref {
 	/**
 	 * @param uri the URI
 	 */
@@ -111,16 +111,6 @@ public class OrgDirectory extends UriProperty implements HasAltId {
 	@Override
 	public void setLanguage(String language) {
 		super.setLanguage(language);
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

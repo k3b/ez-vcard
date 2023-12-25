@@ -17,9 +17,11 @@
 
 package ezvcard.util.org.apache.commons.codec;
 
+import java.util.Base64;
+
 /**
  * Thrown when there is a failure condition during the encoding process. This exception is thrown when an
- * {@link Encoder} encounters a encoding specific exception such as invalid data, inability to calculate a checksum,
+ * {@link Base64.Encoder} encounters a encoding specific exception such as invalid data, inability to calculate a checksum,
  * characters outside of the expected range.
  *
  * @version $Id: EncoderException.java 1619948 2014-08-22 22:53:55Z ggregory $
@@ -74,7 +76,7 @@ public class EncoderException extends Exception {
     }
 
     /**
-     * Constructs a new exception with the specified cause and a detail message of <>(cause==null ?
+     * Constructs a new exception with the specified cause and a detail message of <code>(cause==null ?
      * null : cause.toString())</code> (which typically contains the class and detail message of <code>cause</code>).
      * This constructor is useful for exceptions that are little more than wrappers for other throwables.
      *

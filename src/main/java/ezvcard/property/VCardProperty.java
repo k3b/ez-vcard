@@ -397,67 +397,6 @@ public abstract class VCardProperty implements Comparable<VCardProperty> {
 	}
 
 	/**
-	 * <p>
-	 * Gets this property's preference value. The lower this number is, the more
-	 * "preferred" the property instance is compared with other properties of
-	 * the same type. If a property doesn't have a preference value, then it is
-	 * considered the least preferred.
-	 * </p>
-	 * <p>
-	 * In the vCard below, the {@link Address} on the second row is the most
-	 * preferred because it has the lowest PREF value.
-	 * </p>
-	 * 
-	 * <pre>
-	 * ADR;TYPE=work;PREF=2:;;1600 Amphitheatre Parkway;Mountain View;CA;94043
-	 * ADR;TYPE=work;PREF=1:;;One Microsoft Way;Redmond;WA;98052
-	 * ADR;TYPE=home:;;123 Maple St;Hometown;KS;12345
-	 * </pre>
-	 * 
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the preference value or null if not set
-	 * @throws IllegalStateException if the parameter value cannot be parsed as
-	 * an integer. If this happens, you may use the
-	 * {@link #getParameter(String)} method to retrieve its raw value.
-	 * @see <a href="http://tools.ietf.org/html/rfc6350#page-17">RFC 6350
-	 * p.17</a>
-	 */
-	Integer getPref() {
-		return parameters.getPref();
-	}
-
-	/**
-	 * <p>
-	 * Sets this property's preference value. The lower this number is, the more
-	 * "preferred" the property instance is compared with other properties of
-	 * the same type. If a property doesn't have a preference value, then it is
-	 * considered the least preferred.
-	 * </p>
-	 * <p>
-	 * In the vCard below, the {@link Address} on the second row is the most
-	 * preferred because it has the lowest PREF value.
-	 * </p>
-	 * 
-	 * <pre>
-	 * ADR;TYPE=work;PREF=2:;;1600 Amphitheatre Parkway;Mountain View;CA;94043
-	 * ADR;TYPE=work;PREF=1:;;One Microsoft Way;Redmond;WA;98052
-	 * ADR;TYPE=home:;;123 Maple St;Hometown;KS;12345
-	 * </pre>
-	 * 
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param pref the preference value or null to remove
-	 * @see <a href="http://tools.ietf.org/html/rfc6350#page-17">RFC 6350
-	 * p.17</a>
-	 */
-	void setPref(Integer pref) {
-		parameters.setPref(pref);
-	}
-
-	/**
 	 * Gets the language that the property value is written in.
 	 * @return the language or null if not set
 	 */

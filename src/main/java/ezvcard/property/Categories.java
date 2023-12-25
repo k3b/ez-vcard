@@ -65,7 +65,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-20">RFC 2426 p.20</a>
  */
 @SupportedVersions({ VCardVersion.V3_0, VCardVersion.V4_0 })
-public class Categories extends TextListProperty implements HasAltId {
+public class Categories extends TextListProperty implements HasAltId, IPref {
 	public Categories() {
 		//empty
 	}
@@ -81,16 +81,6 @@ public class Categories extends TextListProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

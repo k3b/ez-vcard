@@ -64,7 +64,7 @@ import ezvcard.parameter.VCardParameters;
  * @see <a href="http://tools.ietf.org/html/rfc6715#page-4">RFC 6715 p.4</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Hobby extends TextProperty implements HasAltId {
+public class Hobby extends TextProperty implements HasAltId, IPref {
 	/**
 	 * Creates a hobby property.
 	 * @param hobby the hobby (e.g. "wind surfing")
@@ -136,16 +136,6 @@ public class Hobby extends TextProperty implements HasAltId {
 	@Override
 	public void setLanguage(String language) {
 		super.setLanguage(language);
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

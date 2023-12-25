@@ -9,6 +9,14 @@ plugins {
     // id 'maven-publish'
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    withSourcesJar()
+    withJavadocJar()
+}
+
 repositories {
 /*
     mavenLocal()
@@ -78,17 +86,19 @@ dependencies {
 group = 'com.googlecode.ez-vcard'
 version = '0.12.2-SNAPSHOT'
 description = 'ez-vcard'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
 
-java {
-    withSourcesJar()
-    withJavadocJar()
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
-
-tasks.withType(JavaCompile) {
+tasks.withType(Javadoc).configureEach {
     options.encoding = 'UTF-8'
 }
 
-tasks.withType(Javadoc) {
-    options.encoding = 'UTF-8'
+// disable javadoc warning "no comment". see https://www.baeldung.com/java-doclint
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
 }

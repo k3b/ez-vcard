@@ -77,7 +77,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc4770">RFC 4770</a>
  */
 @SupportedVersions({ VCardVersion.V3_0, VCardVersion.V4_0 })
-public class Impp extends VCardProperty implements HasAltId {
+public class Impp extends VCardProperty implements HasAltId, IPref {
 	private static final String AIM = "aim";
 	private static final String ICQ = "icq";
 	private static final String IRC = "irc";
@@ -372,16 +372,6 @@ public class Impp extends VCardProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

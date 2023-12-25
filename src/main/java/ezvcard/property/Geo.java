@@ -92,7 +92,7 @@ import ezvcard.util.GeoUri;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-16">RFC 2426 p.16</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.16</a>
  */
-public class Geo extends VCardProperty implements HasAltId {
+public class Geo extends VCardProperty implements HasAltId, IPref {
 	private GeoUri uri;
 
 	/**
@@ -236,16 +236,6 @@ public class Geo extends VCardProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

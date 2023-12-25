@@ -81,7 +81,7 @@ import ezvcard.util.TelUri;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-42">RFC 6350 p.42</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Related extends VCardProperty implements HasAltId {
+public class Related extends VCardProperty implements HasAltId, IPref {
 	private String uri;
 	private String text;
 
@@ -190,16 +190,6 @@ public class Related extends VCardProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

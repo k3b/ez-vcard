@@ -64,7 +64,7 @@ import ezvcard.parameter.VCardParameters;
  * @see <a href="http://tools.ietf.org/html/rfc6715#page-3">RFC 6715 p.3</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Expertise extends TextProperty implements HasAltId {
+public class Expertise extends TextProperty implements HasAltId, IPref {
 	/**
 	 * Creates an expertise property.
 	 * @param skill the skill (e.g. "Java programming")
@@ -137,16 +137,6 @@ public class Expertise extends TextProperty implements HasAltId {
 	@Override
 	public void setLanguage(String language) {
 		super.setLanguage(language);
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

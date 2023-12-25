@@ -67,7 +67,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-37">RFC 6350 p.37</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Language extends TextProperty implements HasAltId {
+public class Language extends TextProperty implements HasAltId, IPref {
 	/**
 	 * Creates a language property.
 	 * @param language the language (e.g. "en-ca")
@@ -111,16 +111,6 @@ public class Language extends TextProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

@@ -61,7 +61,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-49">RFC 6350 p.49</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class FreeBusyUrl extends UriProperty implements HasAltId {
+public class FreeBusyUrl extends UriProperty implements HasAltId, IPref {
 	/**
 	 * Creates a free/busy URL property.
 	 * @param uri the URI
@@ -103,16 +103,6 @@ public class FreeBusyUrl extends UriProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

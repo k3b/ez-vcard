@@ -60,7 +60,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-8">RFC 2426 p.8</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.9</a>
  */
-public class FormattedName extends TextProperty implements HasAltId {
+public class FormattedName extends TextProperty implements HasAltId, IPref {
 	/**
 	 * Creates a formatted name property.
 	 * @param name the person's name (e.g. "John Doe")
@@ -114,16 +114,6 @@ public class FormattedName extends TextProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

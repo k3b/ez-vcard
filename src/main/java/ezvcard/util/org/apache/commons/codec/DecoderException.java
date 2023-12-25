@@ -17,8 +17,10 @@
 
 package ezvcard.util.org.apache.commons.codec;
 
+import java.util.Base64;
+
 /**
- * Thrown when there is a failure condition during the decoding process. This exception is thrown when a {@link Decoder}
+ * Thrown when there is a failure condition during the decoding process. This exception is thrown when a {@link Base64.Decoder}
  * encounters a decoding specific exception such as invalid data, or characters outside of the expected range.
  *
  * @version $Id: DecoderException.java 1619948 2014-08-22 22:53:55Z ggregory $
@@ -71,7 +73,7 @@ public class DecoderException extends Exception {
     }
 
     /**
-     * Constructs a new exception with the specified cause and a detail message of <>(cause==null ?
+     * Constructs a new exception with the specified cause and a detail message of <code>(cause==null ?
      * null : cause.toString())</code> (which typically contains the class and detail message of <code>cause</code>).
      * This constructor is useful for exceptions that are little more than wrappers for other throwables.
      *

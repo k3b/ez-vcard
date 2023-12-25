@@ -51,7 +51,8 @@ import ezvcard.util.Gobble;
  * @author Michael Angstadt
  * @param <T> the class used for representing the content type of the resource
  */
-public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCardProperty implements HasAltId {
+public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCardProperty
+		implements HasAltId,IPref {
 	/**
 	 * The decoded data.
 	 */
@@ -203,16 +204,6 @@ public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCard
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

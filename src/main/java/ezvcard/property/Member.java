@@ -73,7 +73,7 @@ import ezvcard.util.TelUri;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-41">RFC 6350 p.41</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Member extends UriProperty implements HasAltId {
+public class Member extends UriProperty implements HasAltId, IPref {
 	/**
 	 * Creates a member property.
 	 * @param uri the URI representing the member
@@ -137,16 +137,6 @@ public class Member extends UriProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

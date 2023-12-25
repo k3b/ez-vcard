@@ -60,7 +60,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-24">RFC 6350 p.24</a>
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-5">RFC 2426 p.5</a>
  */
-public class Source extends UriProperty implements HasAltId {
+public class Source extends UriProperty implements HasAltId, IPref {
 	/**
 	 * Creates a source property.
 	 * @param url the URL
@@ -80,16 +80,6 @@ public class Source extends UriProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

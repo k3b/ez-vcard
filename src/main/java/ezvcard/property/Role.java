@@ -60,7 +60,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-18">RFC 2426 p.18</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.17</a>
  */
-public class Role extends TextProperty implements HasAltId {
+public class Role extends TextProperty implements HasAltId, IPref {
 	/**
 	 * Creates a role property.
 	 * @param role the role (e.g. "Software Developer")
@@ -114,16 +114,6 @@ public class Role extends TextProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

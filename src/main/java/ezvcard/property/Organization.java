@@ -64,7 +64,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-20">RFC 2426 p.20</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.19</a>
  */
-public class Organization extends TextListProperty implements HasAltId {
+public class Organization extends TextListProperty implements HasAltId, IPref {
 	public Organization() {
 		//empty
 	}
@@ -114,16 +114,6 @@ public class Organization extends TextListProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

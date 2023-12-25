@@ -61,7 +61,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-50">RFC 6350 p.50</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class CalendarUri extends UriProperty implements HasAltId {
+public class CalendarUri extends UriProperty implements HasAltId, IPref {
 	/**
 	 * Creates a calendar URI property.
 	 * @param uri the calendar URI
@@ -103,16 +103,6 @@ public class CalendarUri extends UriProperty implements HasAltId {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	@Override
-	public Integer getPref() {
-		return super.getPref();
-	}
-
-	@Override
-	public void setPref(Integer pref) {
-		super.setPref(pref);
 	}
 
 	//@Override

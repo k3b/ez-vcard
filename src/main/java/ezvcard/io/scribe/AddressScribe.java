@@ -50,6 +50,7 @@ import ezvcard.property.Address;
  * @author Michael Angstadt
  */
 public class AddressScribe extends VCardPropertyScribe<Address> {
+	/** Default constructor */
 	public AddressScribe() {
 		super(Address.class, "ADR");
 	}
