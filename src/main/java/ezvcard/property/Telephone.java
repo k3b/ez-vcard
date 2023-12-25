@@ -1,5 +1,6 @@
 package ezvcard.property;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -159,6 +160,20 @@ public class Telephone extends VCardProperty implements HasAltId, IPref {
 				return TelephoneType.get(value);
 			}
 		};
+	}
+
+	/**
+	 * <p>
+	 * Adds TelephoneType to a telephone number.
+	 *
+	 * @param types the type(s) to assign to the telephone number (e.g. "cell",
+	 * "work", etc)
+	 * @return this to allow call chaining
+	 */
+	public Telephone addType(TelephoneType... types) {
+		if (types != null && types.length > 0) getTypes().addAll(Arrays.asList(types));
+
+		return this;
 	}
 
 	@Override
