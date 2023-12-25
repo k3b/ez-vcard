@@ -119,6 +119,7 @@ import ezvcard.util.StringUtils;
 		{"NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
 		"Unused"}) // this is a lib
 public class VCard implements Iterable<VCardProperty> {
+	public static final VCardVersion V_CARD_VERSION_DEFAULT = VCardVersion.V3_0;
 	private VCardVersion version;
 	private final ListMultimap<Class<? extends VCardProperty>, VCardProperty> properties = new ListMultimap<>();
 
@@ -126,7 +127,7 @@ public class VCard implements Iterable<VCardProperty> {
 	 * Creates a new vCard set to version 3.0.
 	 */
 	public VCard() {
-		this(VCardVersion.V3_0);
+		this(V_CARD_VERSION_DEFAULT);
 	}
 
 	/**
@@ -135,6 +136,26 @@ public class VCard implements Iterable<VCardProperty> {
 	 */
 	public VCard(VCardVersion version) {
 		this.version = version;
+	}
+
+	/**
+	 * Creates a new vCard.
+	 * @param version the version to assign to the vCard
+	 * @param properties the initial properties of the vCard.
+	 */
+	public VCard(VCardVersion version, VCardProperty... properties) {
+		this(version);
+		for(VCardProperty p : properties) {
+			this.properties.put(p.getClass(), p);
+		}
+	}
+
+	/**
+	 * Creates a new vCard.
+	 * @param properties the initial properties of the vCard.
+	 */
+	public VCard(VCardProperty... properties) {
+		this(V_CARD_VERSION_DEFAULT, properties);
 	}
 
 	/**
