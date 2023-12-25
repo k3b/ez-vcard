@@ -119,16 +119,6 @@ public class Email extends TextProperty implements HasAltId, IPref {
 		return super.getPids();
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	protected void _validate(List<ValidationWarning> warnings, VCardVersion version, VCard vcard) {
 		super._validate(warnings, version, vcard);

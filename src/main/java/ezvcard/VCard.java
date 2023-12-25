@@ -115,6 +115,9 @@ import ezvcard.util.StringUtils;
  * Represents a vCard.
  * @author Michael Angstadt
  */
+@SuppressWarnings(
+		{"NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
+		"Unused"}) // this is a lib
 public class VCard implements Iterable<VCardProperty> {
 	private VCardVersion version;
 	private final ListMultimap<Class<? extends VCardProperty>, VCardProperty> properties = new ListMultimap<>();

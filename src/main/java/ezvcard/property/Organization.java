@@ -116,16 +116,6 @@ public class Organization extends TextListProperty implements HasAltId, IPref {
 		return super.getPids();
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	/**
 	 * <p>
 	 * Gets the list that holds string(s) which define how to sort the vCard.

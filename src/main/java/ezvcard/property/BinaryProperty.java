@@ -1,6 +1,7 @@
 package ezvcard.property;
 
 import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -51,6 +52,9 @@ import ezvcard.util.Gobble;
  * @author Michael Angstadt
  * @param <T> the class used for representing the content type of the resource
  */
+@SuppressWarnings(
+		{"NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
+				"Unused"}) // this is a lib
 public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCardProperty
 		implements HasAltId,IPref {
 	/**
@@ -101,7 +105,7 @@ public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCard
 	}
 
 	/**
-	 * Creates a binary property.
+	 * Creates a binary property. Requires Android-API-26.
 	 * @param file the file containing the binary data
 	 * @param type the content type
 	 * @throws IOException if there is a problem reading from the file
@@ -204,16 +208,6 @@ public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCard
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
 	}
 
 	@Override

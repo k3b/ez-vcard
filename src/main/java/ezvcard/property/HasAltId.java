@@ -1,7 +1,5 @@
 package ezvcard.property;
 
-import ezvcard.parameter.VCardParameters;
-
 /*
  Copyright (c) 2012-2023, Michael Angstadt
  All rights reserved.
@@ -31,6 +29,8 @@ import ezvcard.parameter.VCardParameters;
  either expressed or implied, of the FreeBSD Project.
  */
 
+import ezvcard.parameter.VCardParameters;
+
 /**
  * Shows that a property class supports the ALTID parameter.
  * @author Michael Angstadt
@@ -42,9 +42,11 @@ public interface HasAltId {
 	 * <b>Supported versions:</b> {@code 4.0}
 	 * </p>
 	 * @return the ALTID or null if it doesn't exist
-	 * @see VCardParameters#getAltId
+	 * @see ezvcard.parameter.VCardParameters#getAltId
 	 */
-	String getAltId();
+	default String getAltId() {
+		return ((VCardProperty) this).parameters.getAltId();
+	}
 
 	/**
 	 * Sets the property's ALTID parameter.
@@ -52,7 +54,9 @@ public interface HasAltId {
 	 * <b>Supported versions:</b> {@code 4.0}
 	 * </p>
 	 * @param altId the ALTID or null to remove
-	 * @see VCardParameters#setAltId
+	 * @see ezvcard.parameter.VCardParameters#setAltId
 	 */
-	void setAltId(String altId);
+	default void setAltId(String altId) {
+		((VCardProperty) this).parameters.setAltId(altId);
+	}
 }

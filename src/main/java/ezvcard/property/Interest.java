@@ -139,16 +139,6 @@ public class Interest extends TextProperty implements HasAltId, IPref {
 		super.setLanguage(language);
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	public Interest copy() {
 		return new Interest(this);

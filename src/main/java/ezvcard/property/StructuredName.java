@@ -215,16 +215,6 @@ public class StructuredName extends VCardProperty implements HasAltId {
 		super.setLanguage(language);
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	protected Map<String, Object> toStringValues() {
 		Map<String, Object> values = new LinkedHashMap<>();

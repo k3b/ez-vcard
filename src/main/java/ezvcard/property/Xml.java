@@ -141,16 +141,6 @@ public class Xml extends VCardProperty implements HasAltId {
 		this.value = value;
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	protected void _validate(List<ValidationWarning> warnings, VCardVersion version, VCard vcard) {
 		if (value == null) {

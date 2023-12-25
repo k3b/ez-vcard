@@ -116,16 +116,6 @@ public class Role extends TextProperty implements HasAltId, IPref {
 		return super.getPids();
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	public Role copy() {
 		return new Role(this);

@@ -44,7 +44,6 @@ import ezvcard.parameter.Pid;
  * 
  * <pre class="brush:java">
  * VCard vcard = new VCard();
- * 
  * Title title = new Title("Research Scientist");
  * vcard.addTitle(title);
  * </pre>
@@ -115,16 +114,6 @@ public class Title extends TextProperty implements HasAltId, IPref {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
 	}
 
 	@Override

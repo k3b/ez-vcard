@@ -75,6 +75,9 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-16">RFC 2426 p.16</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.16</a>
  */
+@SuppressWarnings(
+		{"NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
+				"Unused"}) // this is a lib
 public class Timezone extends VCardProperty implements HasAltId, IPref {
 	private ZoneOffset offset;
 	private String text;
@@ -112,7 +115,7 @@ public class Timezone extends VCardProperty implements HasAltId, IPref {
 	}
 
 	/**
-	 * Creates a timezone property.
+	 * Creates a timezone property. Requires Android-API-26.
 	 * @param timezone the timezone
 	 */
 	public Timezone(ZoneId timezone) {
@@ -168,7 +171,7 @@ public class Timezone extends VCardProperty implements HasAltId, IPref {
 	}
 
 	/**
-	 * Creates a {@link ZoneId} representation of this class.
+	 * Creates a {@link ZoneId} representation of this class.  Requires Android-API-26.
 	 * @return a {@link ZoneId} object or null if this object contains no
 	 * offset data
 	 */
@@ -237,16 +240,6 @@ public class Timezone extends VCardProperty implements HasAltId, IPref {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
 	}
 
 	@Override

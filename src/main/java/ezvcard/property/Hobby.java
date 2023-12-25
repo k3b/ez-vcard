@@ -138,16 +138,6 @@ public class Hobby extends TextProperty implements HasAltId, IPref {
 		super.setLanguage(language);
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	public Hobby copy() {
 		return new Hobby(this);

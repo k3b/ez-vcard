@@ -162,16 +162,6 @@ public class PlaceProperty extends VCardProperty implements HasAltId {
 		uri = null;
 	}
 
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	public String getLanguage() {
 		return super.getLanguage();

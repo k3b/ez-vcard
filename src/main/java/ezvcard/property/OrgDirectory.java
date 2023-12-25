@@ -112,17 +112,6 @@ public class OrgDirectory extends UriProperty implements HasAltId, IPref {
 	public void setLanguage(String language) {
 		super.setLanguage(language);
 	}
-
-	//@Override
-	public String getAltId() {
-		return parameters.getAltId();
-	}
-
-	//@Override
-	public void setAltId(String altId) {
-		parameters.setAltId(altId);
-	}
-
 	@Override
 	public OrgDirectory copy() {
 		return new OrgDirectory(this);
