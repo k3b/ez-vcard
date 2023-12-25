@@ -1,5 +1,6 @@
 package ezvcard.property;
 
+import java.util.Arrays;
 import java.util.List;
 
 import ezvcard.VCard;
@@ -98,6 +99,19 @@ public class Email extends TextProperty implements HasAltId, IPref {
 				return EmailType.get(value);
 			}
 		};
+	}
+
+	/**
+	 * <p>
+	 * Adds EmailType to a Email.
+	 *
+	 * @param types the type(s) to assign to the Email (e.g. "INTERNET", "WORK")
+	 * @return this to allow call chaining
+	 */
+	public Email addType(EmailType... types) {
+		if (types != null && types.length > 0) getTypes().addAll(Arrays.asList(types));
+
+		return this;
 	}
 
 	@Override
