@@ -17,60 +17,10 @@ java {
     withJavadocJar()
 }
 
-repositories {
-/*
-    mavenLocal()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
-
-    maven {
-        url = uri('http://oss.sonatype.org/content/repositories/jboss-snapshots')
-
-        // allowInsecureProtocol = true
-    }
-
-    maven {
-        url = uri('https://repository.apache.org/content/repositories/snapshots')
-    }
-
-    maven {
-        url = uri('http://repository.apache.org/snapshots')
-
-        // allowInsecureProtocol = true
-    }
-
-    maven {
-        url = uri('http://people.apache.org/repo/m2-snapshot-repository')
-
-        // allowInsecureProtocol = true
-    }
-
-    maven {
-        url = uri('http://nexus.service.fms.local:8081/repository/public')
-
-        // allowInsecureProtocol = true
-    }
-
-    maven {
-        url = uri('http://nexus.service.fms.local:8081/repository/fms_osgi')
-
-        // allowInsecureProtocol = true
-    }
-
-    maven {
-        url = uri('http://nexus.service.fms.local:8081/repository/fms_osgi_release')
-
-        // allowInsecureProtocol = true
-    }
-
-    maven {
-        url = uri('https://oss.sonatype.org/content/repositories/snapshots')
-    }
- */
-}
-
 dependencies {
+    // annotations to declare android compatibility without android-code-dependencies
+    implementation 'androidx.annotation:annotation:1.7.1'
+
     api 'com.github.mangstadt:vinnie:2.0.2'
     api 'org.jsoup:jsoup:1.16.1'
     api 'org.freemarker:freemarker:2.3.32'
@@ -97,7 +47,7 @@ tasks.withType(Javadoc).configureEach {
 // disable javadoc warning "no comment". see https://www.baeldung.com/java-doclint
 if (JavaVersion.current().isJava8Compatible()) {
     allprojects {
-        tasks.withType(Javadoc) {
+        tasks.withType(Javadoc).configureEach {
             options.addStringOption('Xdoclint:none', '-quiet')
         }
     }

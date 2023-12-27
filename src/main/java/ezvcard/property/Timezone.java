@@ -1,5 +1,7 @@
 package ezvcard.property;
 
+import androidx.annotation.RequiresApi;
+
 import java.time.DateTimeException;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -76,8 +78,9 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.16</a>
  */
 @SuppressWarnings(
-		{"NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
+		{// "NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
 				"Unused"}) // this is a lib
+@RequiresApi(21)
 public class Timezone extends VCardProperty implements HasAltId, IPref {
 	private ZoneOffset offset;
 	private String text;
@@ -115,9 +118,12 @@ public class Timezone extends VCardProperty implements HasAltId, IPref {
 	}
 
 	/**
-	 * Creates a timezone property. Requires Android-API-26.
+	 * Creates a timezone property.
+	 * If using this code with Android: Requires either Android-API-26 or desuaring https://developer.android.com/studio/write/java8-support-table.
+	 *
 	 * @param timezone the timezone
 	 */
+	@RequiresApi(26)
 	public Timezone(ZoneId timezone) {
 		this(OffsetDateTime.now(timezone).getOffset(), timezone.getId());
 	}
@@ -171,10 +177,13 @@ public class Timezone extends VCardProperty implements HasAltId, IPref {
 	}
 
 	/**
-	 * Creates a {@link ZoneId} representation of this class.  Requires Android-API-26.
+	 * Creates a {@link ZoneId} representation of this class.
+	 * If using this code with Android: Requires either Android-API-26 or desuaring https://developer.android.com/studio/write/java8-support-table.
+	 *
 	 * @return a {@link ZoneId} object or null if this object contains no
 	 * offset data
 	 */
+	@RequiresApi(26)
 	public ZoneId toTimeZone() {
 		if (text != null) {
 			try {

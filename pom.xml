@@ -1,4 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.googlecode.ez-vcard</groupId>
 	<artifactId>ez-vcard</artifactId>
@@ -10,7 +13,10 @@
 	<organization>
 		<name>Michael Angstadt</name>
 	</organization>
-	<description>A library that reads and writes vCards, supporting all versions of the vCard standard (2.1, 3.0, and 4.0) as well as xCard (XML-encoded vCards), hCard (HTML-encoded vCards), and jCard (JSON-encoded vCards).</description>
+	<description>A library that reads and writes vCards, supporting all versions of the vCard
+		standard (2.1, 3.0, and 4.0) as well as xCard (XML-encoded vCards), hCard (HTML-encoded
+		vCards), and jCard (JSON-encoded vCards).
+	</description>
 
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -61,6 +67,12 @@
 		</dependency>
 		-->
 		<dependency>
+			<!-- annotations to declare android compatibility without android-code-dependencies -->
+			<groupId>androidx.annotation</groupId>
+			<artifactId>annotation</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		<dependency>
 			<groupId>com.github.mangstadt</groupId>
 			<artifactId>vinnie</artifactId>
 			<version>2.0.2</version>
@@ -84,7 +96,7 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.15.2</version>
-			
+
 			<!--
 			The only classes that refer to objects from jackson-databind are JCardModule, JCardSerializer, and JCardDeserializer, all of which
 			consume external objects from jackson-databind for their functionality, so any project using them will already have its own dependency
@@ -117,10 +129,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>nl.jqno.equalsverifier</groupId>
-		    <artifactId>equalsverifier</artifactId>
-		    <version>1.7.6</version>
-		    <scope>test</scope>
+			<groupId>nl.jqno.equalsverifier</groupId>
+			<artifactId>equalsverifier</artifactId>
+			<version>1.7.6</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -132,7 +144,7 @@
 			<resource>
 				<directory>src/main/resources</directory>
 			</resource>
-			
+
 			<!--
 			For reasons unknown, the "eclipse:eclipse" goal fails with the above <resource> definitions.
 			Uncomment the <resource> block below and comment out the <resource> blocks above when running this goal.
@@ -224,7 +236,7 @@
 						<link>https://fasterxml.github.io/jackson-databind/javadoc/2.14/</link>
 					</links>
 					<quiet>true</quiet>
-					
+
 					<!-- The build fails if it detects Javascript in the footer. -->
 					<additionalOptions>
 						<additionalOption>--allow-script-in-comments</additionalOption>
@@ -259,7 +271,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<!--
 			FindBugs plugin
 			To run: mvn findbugs:findbugs
@@ -306,7 +318,7 @@
 					</targetTests>
 				</configuration>
 			</plugin>
-			
+
 			<!-- 
 			For codecov.io.
 			-->
@@ -385,7 +397,7 @@
 			<activation>
 				<jdk>[1.8,)</jdk>
 			</activation>
-	
+
 			<build>
 				<plugins>
 					<plugin>

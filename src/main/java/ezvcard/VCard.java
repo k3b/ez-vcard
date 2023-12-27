@@ -1,5 +1,7 @@
 package ezvcard;
 
+import androidx.annotation.RequiresApi;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
@@ -116,8 +118,9 @@ import ezvcard.util.StringUtils;
  * @author Michael Angstadt
  */
 @SuppressWarnings(
-		{"NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
+		{// "NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
 		"Unused"}) // this is a lib
+@RequiresApi(21)
 public class VCard implements Iterable<VCardProperty> {
 	public static final VCardVersion V_CARD_VERSION_DEFAULT = VCardVersion.V3_0;
 	private VCardVersion version;
@@ -1855,6 +1858,7 @@ public class VCard implements Iterable<VCardProperty> {
 	/**
 	 * <p>
 	 * Sets the person's time of death.
+	 * If using this code with Android: Requires either Android-API-26 or desuaring https://developer.android.com/studio/write/java8-support-table.
 	 * </p>
 	 * <p>
 	 * <b>Property name:</b> {@code DEATHDATE}<br>
@@ -1865,6 +1869,7 @@ public class VCard implements Iterable<VCardProperty> {
 	 * @see <a href="http://tools.ietf.org/html/rfc6474">RFC 6474</a>
 	 * @see <a href="http://tools.ietf.org/html/rfc6474#page-4">RFC 6474 p.4</a>
 	 */
+	@RequiresApi(26)
 	public Deathdate setDeathdate(LocalDate date) {
 		Deathdate type = (date == null) ? null : new Deathdate(date);
 		setDeathdate(type);
@@ -1959,6 +1964,7 @@ public class VCard implements Iterable<VCardProperty> {
 	/**
 	 * <p>
 	 * Sets the person's birthday.
+	 * If using this code with Android: Requires either Android-API-26 or desuaring https://developer.android.com/studio/write/java8-support-table.
 	 * </p>
 	 * <p>
 	 * <b>Property name:</b> {@code BDAY}<br>
@@ -1972,6 +1978,7 @@ public class VCard implements Iterable<VCardProperty> {
 	 * p.11</a>
 	 * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.11</a>
 	 */
+	@RequiresApi(26)
 	public Birthday setBirthday(LocalDate date) {
 		Birthday type = (date == null) ? null : new Birthday(date);
 		setBirthday(type);
@@ -2059,6 +2066,7 @@ public class VCard implements Iterable<VCardProperty> {
 	/**
 	 * <p>
 	 * Sets the person's anniversary.
+	 * If using this code with Android: If using this code with Android: Requires either Android-API-26 or desuaring https://developer.android.com/studio/write/java8-support-table.
 	 * </p>
 	 * <p>
 	 * <b>Property name:</b> {@code ANNIVERSARY}<br>
@@ -2069,6 +2077,7 @@ public class VCard implements Iterable<VCardProperty> {
 	 * @see <a href="http://tools.ietf.org/html/rfc6350#page-31">RFC 6350
 	 * p.31</a>
 	 */
+	@RequiresApi(26)
 	public Anniversary setAnniversary(LocalDate date) {
 		Anniversary type = (date == null) ? null : new Anniversary(date);
 		setAnniversary(type);

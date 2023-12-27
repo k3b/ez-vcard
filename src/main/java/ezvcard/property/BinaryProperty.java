@@ -1,7 +1,9 @@
 package ezvcard.property;
 
+import androidx.annotation.DeprecatedSinceApi;
+import androidx.annotation.RequiresApi;
+
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -53,8 +55,9 @@ import ezvcard.util.Gobble;
  * @param <T> the class used for representing the content type of the resource
  */
 @SuppressWarnings(
-		{"NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
+		{// "NewApi", // lib is for android-api-21. Some Path/Datetime require android-api-26
 				"Unused"}) // this is a lib
+@RequiresApi(21)
 public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCardProperty
 		implements HasAltId,IPref {
 	/**
@@ -105,11 +108,15 @@ public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCard
 	}
 
 	/**
-	 * Creates a binary property. Requires Android-API-26.
+	 * Creates a binary property.
+	 * If using this code with Android: Requires either Android-API-26 or desuaring https://developer.android.com/studio/write/java8-support-table.
+	 *
 	 * @param file the file containing the binary data
 	 * @param type the content type
 	 * @throws IOException if there is a problem reading from the file
 	 */
+	@RequiresApi(26)
+	@DeprecatedSinceApi(api=29, message = "For Android only: Use InputStream-Overload with context.getContentResolver().openInputStream(fileUri) instead")
 	public BinaryProperty(Path file, T type) throws IOException {
 		this(new BufferedInputStream(Files.newInputStream(file)), type);
 	}
