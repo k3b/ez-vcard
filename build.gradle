@@ -18,19 +18,20 @@ java {
 }
 
 dependencies {
-    // annotations to declare android compatibility without android-code-dependencies
-    implementation 'androidx.annotation:annotation:1.7.1'
-
     api 'com.github.mangstadt:vinnie:2.0.2'
+
+    // nested VCARD does not work with 1.17.1
+    // api 'org.jsoup:jsoup:1.17.1'
     api 'org.jsoup:jsoup:1.16.1'
+
     api 'org.freemarker:freemarker:2.3.32'
     api 'com.fasterxml.jackson.core:jackson-core:2.15.2'
     api 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     testImplementation 'junit:junit:4.13.1'
     testImplementation 'xmlunit:xmlunit:1.6'
-    testImplementation 'org.mockito:mockito-all:1.10.19'
+    testImplementation 'org.mockito:mockito-core:5.8.0'
     testImplementation 'xalan:xalan:2.7.2'
-    testImplementation 'nl.jqno.equalsverifier:equalsverifier:1.7.6'
+    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.15.5'
 }
 
 group = 'com.googlecode.ez-vcard'

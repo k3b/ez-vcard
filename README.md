@@ -44,12 +44,14 @@ String str = Ezvcard.write(vcard).version(VCardVersion.V4_0).go();
 # Features
 
  * Simple, intuitive API (see [Examples](https://github.com/mangstadt/ez-vcard/wiki/Examples)).
- * Android compatibility.
+ * Android compatibility (Requires android api 21. DateTime (i.e. Birthday), TimeZone and java.nio.file.Path Requires either Android-API-26 or desuaring.) 
  * Full compliance with 2.1, 3.0, and 4.0 specifications (see [Supported Specifications](https://github.com/mangstadt/ez-vcard/wiki/Supported-Specifications)).
  * Supports XML, HTML, and JSON encoded vCards (see [Supported Specifications](https://github.com/mangstadt/ez-vcard/wiki/Supported-Specifications)).
  * Extensive unit test coverage.
  * Low Java version requirement (1.8 or above).
  * Few dependencies on external libraries.  Dependencies can be selectively excluded based on the functionality that is needed (see [Dependencies](https://github.com/mangstadt/ez-vcard/wiki/Dependencies)).
+ * Can be build either with maven or gradle.
+ * Can be included as a gradle-Subproject.
 
 # News
 
@@ -85,13 +87,17 @@ String str = Ezvcard.write(vcard).version(VCardVersion.V4_0).go();
 compile 'com.googlecode.ez-vcard:ez-vcard:0.12.1'
 ```
 
-# Build Instructions
+# Build Instructions via maven pom.xml
 
 ez-vcard uses [Maven](http://maven.apache.org/) as its build tool, and adheres to its conventions.
 
 To build the project: `mvn compile`  
 To run the unit tests: `mvn test`  
 To build a JAR: `mvn package`
+
+# Build Instructions via gradle build.gradle
+To build the lib project: `./gradlew jar`  
+To run the unit tests: `./gradlew test`
 
 **Eclipse users:** Due to a quirk in the build process, before running the `eclipse:eclipse` goal, you must tweak some of the `<resource>` definitions in the POM file.  See the comments in the POM file for details.
 
