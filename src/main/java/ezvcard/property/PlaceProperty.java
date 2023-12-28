@@ -43,7 +43,8 @@ import ezvcard.util.GeoUri;
  * @author Michael Angstadt
  * @see <a href="http://tools.ietf.org/html/rfc6474">RFC 6474</a>
  */
-public class PlaceProperty extends VCardProperty implements HasAltId {
+public class PlaceProperty extends VCardProperty
+		implements HasAltId,ILanguage {
 	protected GeoUri geoUri;
 	protected String uri;
 	protected String text;
@@ -160,16 +161,6 @@ public class PlaceProperty extends VCardProperty implements HasAltId {
 		this.text = text;
 		geoUri = null;
 		uri = null;
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

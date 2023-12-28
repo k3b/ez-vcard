@@ -65,7 +65,7 @@ import ezvcard.parameter.VCardParameters;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class Interest extends TextProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type ,ILanguage {
 	/**
 	 * Creates an interest property.
 	 * @param interest the hobby (e.g. "wind surfing")
@@ -110,16 +110,6 @@ public class Interest extends TextProperty
 	@Override
 	public void setIndex(Integer index) {
 		super.setIndex(index);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

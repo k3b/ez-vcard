@@ -102,7 +102,8 @@ import ezvcard.util.StringUtils;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-11">RFC 2426 p.11</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.11</a>
  */
-public class Address extends VCardProperty implements HasAltId, IPref {
+public class Address extends VCardProperty
+		implements HasAltId, IPref,ILanguage {
 	private final List<String> poBoxes;
 	private final List<String> extendedAddresses;
 	private final List<String> streetAddresses;
@@ -350,16 +351,6 @@ public class Address extends VCardProperty implements HasAltId, IPref {
 				return AddressType.get(value);
 			}
 		};
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	/**

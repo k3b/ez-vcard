@@ -60,7 +60,7 @@ import ezvcard.VCardVersion;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class OrgDirectory extends UriProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type ,ILanguage {
 	/**
 	 * @param uri the URI
 	 */
@@ -86,15 +86,6 @@ public class OrgDirectory extends UriProperty
 		super.setIndex(index);
 	}
 
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
-	}
 	@Override
 	public OrgDirectory copy() {
 		return new OrgDirectory(this);

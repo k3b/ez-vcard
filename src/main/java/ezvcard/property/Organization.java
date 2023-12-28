@@ -65,7 +65,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.19</a>
  */
 public class Organization extends TextListProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type,ILanguage {
 	public Organization() {
 		//empty
 	}
@@ -76,16 +76,6 @@ public class Organization extends TextListProperty
 	 */
 	public Organization(Organization original) {
 		super(original);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

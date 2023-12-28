@@ -81,7 +81,8 @@ import ezvcard.parameter.AddressType;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.12</a>
  */
 @SupportedVersions({ VCardVersion.V2_1, VCardVersion.V3_0 })
-public class Label extends TextProperty {
+public class Label extends TextProperty
+		implements ILanguage {
 	/**
 	 * Creates a label property.
 	 * @param label the label value
@@ -110,16 +111,6 @@ public class Label extends TextProperty {
 				return AddressType.get(value);
 			}
 		};
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

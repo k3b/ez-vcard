@@ -397,22 +397,6 @@ public abstract class VCardProperty implements Comparable<VCardProperty> {
 	}
 
 	/**
-	 * Gets the language that the property value is written in.
-	 * @return the language or null if not set
-	 */
-	String getLanguage() {
-		return parameters.getLanguage();
-	}
-
-	/**
-	 * Sets the language that the property value is written in.
-	 * @param language the language or null to remove
-	 */
-	void setLanguage(String language) {
-		parameters.setLanguage(language);
-	}
-
-	/**
 	 * <p>
 	 * Gets the sorted position of this property when it is grouped together
 	 * with other properties of the same type. Properties with low index values

@@ -61,7 +61,7 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.9</a>
  */
 public class FormattedName extends TextProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type ,ILanguage {
 	/**
 	 * Creates a formatted name property.
 	 * @param name the person's name (e.g. "John Doe")
@@ -76,16 +76,6 @@ public class FormattedName extends TextProperty
 	 */
 	public FormattedName(FormattedName original) {
 		super(original);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

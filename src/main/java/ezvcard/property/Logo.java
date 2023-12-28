@@ -91,7 +91,8 @@ import ezvcard.parameter.ImageType;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-18">RFC 2426 p.18</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.17</a>
  */
-public class Logo extends ImageProperty {
+public class Logo extends ImageProperty
+		implements ILanguage {
 	/**
 	 * Creates a logo property.
 	 * @param url the URL to the logo
@@ -136,16 +137,6 @@ public class Logo extends ImageProperty {
 	 */
 	public Logo(Logo original) {
 		super(original);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

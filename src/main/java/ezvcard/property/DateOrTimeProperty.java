@@ -51,7 +51,8 @@ import ezvcard.util.PartialDate;
  * contain a partial date or free-text value.
  * @author Michael Angstadt
  */
-public class DateOrTimeProperty extends VCardProperty implements HasAltId {
+public class DateOrTimeProperty extends VCardProperty
+		implements HasAltId ,ILanguage {
 	private String text;
 	private Temporal date;
 	private PartialDate partialDate;
@@ -192,16 +193,6 @@ public class DateOrTimeProperty extends VCardProperty implements HasAltId {
 	 */
 	public void setCalscale(Calscale calscale) {
 		parameters.setCalscale(calscale);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

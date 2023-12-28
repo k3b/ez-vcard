@@ -65,7 +65,8 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-9">RFC 2426 p.9</a>
  */
 @SupportedVersions({ VCardVersion.V3_0, VCardVersion.V4_0 })
-public class Nickname extends TextListProperty implements HasAltId, IPref, IV4Type {
+public class Nickname extends TextListProperty
+		implements HasAltId, IPref, IV4Type ,ILanguage {
 	public Nickname() {
 		//empty
 	}
@@ -76,16 +77,6 @@ public class Nickname extends TextListProperty implements HasAltId, IPref, IV4Ty
 	 */
 	public Nickname(Nickname original) {
 		super(original);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

@@ -69,7 +69,8 @@ import ezvcard.ValidationWarning;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-9">RFC 2426 p.9</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.9</a>
  */
-public class StructuredName extends VCardProperty implements HasAltId {
+public class StructuredName extends VCardProperty
+		implements HasAltId ,ILanguage {
 	private String family;
 	private String given;
 	private final List<String> additional;
@@ -203,16 +204,6 @@ public class StructuredName extends VCardProperty implements HasAltId {
 	 */
 	public void setSortAs(String family, String given) {
 		parameters.setSortAs(family, given);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override

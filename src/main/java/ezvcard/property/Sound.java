@@ -91,7 +91,8 @@ import ezvcard.parameter.SoundType;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-23">RFC 2426 p.23</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.20</a>
  */
-public class Sound extends BinaryProperty<SoundType> {
+public class Sound extends BinaryProperty<SoundType>
+		implements ILanguage {
 	/**
 	 * Creates a sound property.
 	 * @param url the URL to the sound file
@@ -136,16 +137,6 @@ public class Sound extends BinaryProperty<SoundType> {
 	 */
 	public Sound(Sound original) {
 		super(original);
-	}
-
-	@Override
-	public String getLanguage() {
-		return super.getLanguage();
-	}
-
-	@Override
-	public void setLanguage(String language) {
-		super.setLanguage(language);
 	}
 
 	@Override
