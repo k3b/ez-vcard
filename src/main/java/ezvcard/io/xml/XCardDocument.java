@@ -5,6 +5,11 @@ import static ezvcard.io.xml.XCardQNames.PARAMETERS;
 import static ezvcard.io.xml.XCardQNames.VCARD;
 import static ezvcard.io.xml.XCardQNames.VCARDS;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -34,11 +39,6 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 import ezvcard.VCard;
 import ezvcard.VCardDataType;
@@ -135,6 +135,7 @@ import ezvcard.util.XmlUtils;
 * @see <a href="http://tools.ietf.org/html/rfc6351">RFC 6351</a>
 */
 //@formatter:on
+@SuppressWarnings("NewApi")
 public class XCardDocument {
 	private final VCardVersion version4 = VCardVersion.V4_0; //xCard only supports 4.0
 	private final Document document;
@@ -517,7 +518,7 @@ public class XCardDocument {
 				return null;
 			}
 
-			vcard = new VCard();
+			vcard = VCard.create();
 			vcard.setVersion(version4);
 			context.setVersion(version4);
 			parseVCardElement(vcardElements.next());

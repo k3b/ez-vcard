@@ -119,14 +119,36 @@ import ezvcard.util.StringUtils;
 		{"Unused"}) // this is a lib
 public class VCard implements Iterable<VCardProperty> {
 	public static final VCardVersion V_CARD_VERSION_DEFAULT = VCardVersion.V3_0;
-	private VCardVersion version;
+	private VCardVersion version = V_CARD_VERSION_DEFAULT;
 	private final ListMultimap<Class<? extends VCardProperty>, VCardProperty> properties = new ListMultimap<>();
+
+	private static Class<? extends VCard> factory = VCard.class;
+
+	/**
+	 * define VCard factory to allow creation of derived classes in the deserialisation
+	 */
+	public static void setFactory(Class<? extends VCard> factory) {
+		VCard.factory = factory;
+	}
+
+	/**
+	 * static VCard factory to allow creation of derived classes in the deserialisation
+	 */
+	public static VCard create() {
+		if (factory != null) {
+			try {
+				return factory.getConstructor().newInstance();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+		return new VCard();
+	}
 
 	/**
 	 * Creates a new vCard set to version 3.0.
 	 */
 	public VCard() {
-		this(V_CARD_VERSION_DEFAULT);
 	}
 
 	/**
@@ -139,22 +161,13 @@ public class VCard implements Iterable<VCardProperty> {
 
 	/**
 	 * Creates a new vCard.
-	 * @param version the version to assign to the vCard
-	 * @param properties the initial properties of the vCard.
-	 */
-	public VCard(VCardVersion version, VCardProperty... properties) {
-		this(version);
-		for(VCardProperty p : properties) {
-			this.properties.put(p.getClass(), p);
-		}
-	}
-
-	/**
-	 * Creates a new vCard.
+	 *
 	 * @param properties the initial properties of the vCard.
 	 */
 	public VCard(VCardProperty... properties) {
-		this(V_CARD_VERSION_DEFAULT, properties);
+		for (VCardProperty p : properties) {
+			this.properties.put(p.getClass(), p);
+		}
 	}
 
 	/**
@@ -484,10 +497,13 @@ public class VCard implements Iterable<VCardProperty> {
 	 * what version the vCard should be marshalled as. {@link VCardWriter}
 	 * <b>does not</b> look at the version that is set on the VCard object.
 	 * </p>
+	 *
 	 * @param version the vCard version
+	 * @return this
 	 */
-	public void setVersion(VCardVersion version) {
+	public VCard setVersion(VCardVersion version) {
 		this.version = version;
+		return this;
 	}
 
 	/**

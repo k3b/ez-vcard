@@ -39,7 +39,7 @@ public class VCardUtils {
      * @return generated VCard
      */
     public static VCard createFullDemoVCard() {
-        VCard vcard = new VCard();
+        VCard vcard = VCard.create();
 
         StructuredName n = new StructuredName();
         n.setFamily("Claus");

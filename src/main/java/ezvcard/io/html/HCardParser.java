@@ -2,6 +2,11 @@ package ezvcard.io.html;
 
 import static ezvcard.util.HtmlUtils.isChildOf;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -13,11 +18,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
@@ -86,6 +86,7 @@ import ezvcard.util.IOUtils;
  * @see <a href="http://microformats.org/wiki/hcard">http://microformats.org/
  * wiki/hcard</a>
  */
+@SuppressWarnings("NewApi")
 public class HCardParser extends StreamReader {
 	private final String pageUrl;
 	private final Elements vcardElements;
@@ -275,7 +276,7 @@ public class HCardParser extends StreamReader {
 		nickname = null;
 		categories = null;
 
-		vcard = new VCard();
+		vcard = VCard.create();
 		vcard.setVersion(VCardVersion.V3_0);
 		if (pageUrl != null) {
 			vcard.addSource(pageUrl);

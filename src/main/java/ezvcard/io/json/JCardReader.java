@@ -1,5 +1,7 @@
 package ezvcard.io.json;
 
+import com.fasterxml.jackson.core.JsonParser;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,8 +10,6 @@ import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import com.fasterxml.jackson.core.JsonParser;
 
 import ezvcard.VCard;
 import ezvcard.VCardDataType;
@@ -74,6 +74,7 @@ import ezvcard.property.VCardProperty;
  * @author Michael Angstadt
  * @see <a href="http://tools.ietf.org/html/rfc7095">RFC 7095</a>
  */
+@SuppressWarnings("NewApi")
 public class JCardReader extends StreamReader {
 	private final JCardRawReader reader;
 
@@ -145,7 +146,7 @@ public class JCardReader extends StreamReader {
 		private boolean versionFound = false;
 
 		public void beginVCard() {
-			vcard = new VCard();
+			vcard = VCard.create();
 			vcard.setVersion(VCardVersion.V4_0);
 		}
 

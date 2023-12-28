@@ -5,6 +5,13 @@ import static ezvcard.io.xml.XCardQNames.PARAMETERS;
 import static ezvcard.io.xml.XCardQNames.VCARD;
 import static ezvcard.io.xml.XCardQNames.VCARDS;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.IOException;
@@ -28,13 +35,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
@@ -100,6 +100,7 @@ import ezvcard.util.XmlUtils;
  * @author Michael Angstadt
  * @see <a href="http://tools.ietf.org/html/rfc6351">RFC 6351</a>
  */
+@SuppressWarnings("NewApi")
 public class XCardReader extends StreamReader {
 	private final VCardVersion version = VCardVersion.V4_0;
 	private final String NS = version.getXmlNamespace();
@@ -279,7 +280,7 @@ public class XCardReader extends StreamReader {
 				case vcards:
 					//<vcard>
 					if (VCARD.equals(qname)) {
-						readVCard = new VCard();
+						readVCard = VCard.create();
 						readVCard.setVersion(version);
 						typeToPush = ElementType.vcard;
 					}

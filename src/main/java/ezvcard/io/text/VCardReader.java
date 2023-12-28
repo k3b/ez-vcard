@@ -1,5 +1,13 @@
 package ezvcard.io.text;
 
+import com.github.mangstadt.vinnie.VObjectProperty;
+import com.github.mangstadt.vinnie.io.Context;
+import com.github.mangstadt.vinnie.io.SyntaxRules;
+import com.github.mangstadt.vinnie.io.VObjectDataListener;
+import com.github.mangstadt.vinnie.io.VObjectPropertyValues;
+import com.github.mangstadt.vinnie.io.VObjectReader;
+import com.github.mangstadt.vinnie.io.Warning;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -10,14 +18,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.github.mangstadt.vinnie.VObjectProperty;
-import com.github.mangstadt.vinnie.io.Context;
-import com.github.mangstadt.vinnie.io.SyntaxRules;
-import com.github.mangstadt.vinnie.io.VObjectDataListener;
-import com.github.mangstadt.vinnie.io.VObjectPropertyValues;
-import com.github.mangstadt.vinnie.io.VObjectReader;
-import com.github.mangstadt.vinnie.io.Warning;
 
 import ezvcard.VCard;
 import ezvcard.VCardDataType;
@@ -88,6 +88,7 @@ import ezvcard.util.StringUtils;
  * @see <a href="http://tools.ietf.org/html/rfc2426">RFC 2426 (3.0)</a>
  * @see <a href="http://tools.ietf.org/html/rfc6350">RFC 6350 (4.0)</a>
  */
+@SuppressWarnings("NewApi")
 public class VCardReader extends StreamReader {
 	private final VObjectReader reader;
 	private final VCardVersion defaultVersion;
@@ -229,7 +230,7 @@ public class VCardReader extends StreamReader {
 				return;
 			}
 
-			VCard vcard = new VCard(defaultVersion);
+			VCard vcard = VCard.create().setVersion(defaultVersion);
 			if (stack.isEmpty()) {
 				root = vcard;
 			}
