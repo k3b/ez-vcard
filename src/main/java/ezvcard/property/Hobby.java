@@ -95,11 +95,13 @@ public class Hobby extends TextProperty
 
 	/**
 	 * Sets the level at which the person practices the hobby.
+	 *
 	 * @param level the level (e.g. "low") or null to remove
 	 * @see VCardParameters#setLevel
 	 */
-	public void setLevel(HobbyLevel level) {
+	public Hobby setLevel(HobbyLevel level) {
 		parameters.setLevel(level.getValue());
+		return this;
 	}
 
 	@Override

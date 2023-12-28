@@ -95,12 +95,14 @@ public class Interest extends TextProperty
 
 	/**
 	 * Sets the level of the person's interest.
+	 *
 	 * @param level the level (e.g. "low") or null to remove
 	 * @see VCardParameters#setLevel
 	 */
-	public void setLevel(InterestLevel level) {
+	public Interest setLevel(InterestLevel level) {
 		String value = (level == null) ? null : level.getValue();
 		parameters.setLevel(value);
+		return this;
 	}
 
 	@Override

@@ -95,12 +95,14 @@ public class Expertise extends TextProperty
 
 	/**
 	 * Sets the level of knowledge the person has for this skill.
+	 *
 	 * @param level the skill level (e.g. "beginner") or null to remove
 	 * @see VCardParameters#setLevel
 	 */
-	public void setLevel(ExpertiseLevel level) {
+	public Expertise setLevel(ExpertiseLevel level) {
 		String value = (level == null) ? null : level.getValue();
 		parameters.setLevel(value);
+		return this;
 	}
 
 	@Override

@@ -1,10 +1,15 @@
 package ezvcard.io.html;
 
-import static ezvcard.util.StringUtils.NEWLINE;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static ezvcard.util.StringUtils.NEWLINE;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,43 +17,29 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.junit.Test;
 
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
 import ezvcard.io.ParseContext;
 import ezvcard.io.scribe.SortStringScribe;
-import ezvcard.parameter.AddressType;
-import ezvcard.parameter.EmailType;
 import ezvcard.parameter.ImageType;
 import ezvcard.parameter.SoundType;
-import ezvcard.parameter.TelephoneType;
 import ezvcard.property.Address;
-import ezvcard.property.Birthday;
 import ezvcard.property.Email;
 import ezvcard.property.Impp;
 import ezvcard.property.Logo;
 import ezvcard.property.Note;
 import ezvcard.property.Organization;
 import ezvcard.property.Photo;
-import ezvcard.property.Revision;
 import ezvcard.property.Role;
 import ezvcard.property.SortString;
 import ezvcard.property.Sound;
 import ezvcard.property.StructuredName;
 import ezvcard.property.Telephone;
-import ezvcard.property.Timezone;
 import ezvcard.property.Title;
-import ezvcard.property.Uid;
 import ezvcard.property.Url;
 import ezvcard.util.TelUri;
+import ezvcard.util.VCardUtils;
 
 /*
  Copyright (c) 2012-2023, Michael Angstadt
@@ -387,84 +378,7 @@ public class HCardPageTest {
 	}
 
 	private VCard createFullVCard() throws IOException {
-		VCard vcard = new VCard();
-
-		StructuredName n = new StructuredName();
-		n.setFamily("Claus");
-		n.setGiven("Santa");
-		n.getAdditionalNames().add("Saint Nicholas");
-		n.getAdditionalNames().add("Father Christmas");
-		n.getPrefixes().add("Mr");
-		n.getPrefixes().add("Dr");
-		n.getSuffixes().add("M.D.");
-		n.setSortAs("Claus");
-		vcard.setStructuredName(n);
-
-		vcard.setClassification("public");
-
-		vcard.setMailer("Thunderbird");
-
-		vcard.setFormattedName("Santa Claus");
-
-		vcard.setNickname("Kris Kringle");
-
-		vcard.addTitle("Manager");
-
-		vcard.addRole("Executive");
-		vcard.addRole("Team Builder");
-
-		vcard.addEmail("johndoe@hotmail.com", EmailType.HOME, EmailType.WORK);
-
-		vcard.addEmail("doe.john@company.com", EmailType.WORK);
-
-		Telephone tel = new Telephone(new TelUri.Builder("+1-555-222-3333").extension("101").build());
-		vcard.addTelephoneNumber(tel);
-
-		tel = new Telephone(new TelUri.Builder("+1-555-333-4444").build());
-		tel.getTypes().add(TelephoneType.WORK);
-		vcard.addTelephoneNumber(tel);
-
-		vcard.addTelephoneNumber("(555) 111-2222", TelephoneType.HOME, TelephoneType.VOICE, TelephoneType.PREF);
-
-		Address adr = new Address();
-		adr.setStreetAddress("123 Main St");
-		adr.setExtendedAddress("Apt 11");
-		adr.setLocality("Austin");
-		adr.setRegion("Tx");
-		adr.setPostalCode("12345");
-		adr.setCountry("USA");
-		adr.setLabel("123 Main St." + NEWLINE + "Austin TX, 12345" + NEWLINE + "USA");
-		adr.getTypes().add(AddressType.HOME);
-		vcard.addAddress(adr);
-
-		adr = new Address();
-		adr.setPoBox("123");
-		adr.setStreetAddress("456 Wall St.");
-		adr.setLocality("New York");
-		adr.setRegion("NY");
-		adr.setPostalCode("11111");
-		adr.setCountry("USA");
-		adr.getTypes().add(AddressType.PREF);
-		adr.getTypes().add(AddressType.WORK);
-		vcard.addAddress(adr);
-
-		vcard.setOrganization("Google", "GMail");
-
-		Birthday bday = new Birthday(LocalDate.of(1970, 3, 8));
-		vcard.setBirthday(bday);
-
-		vcard.addUrl("http://company.com");
-
-		vcard.setCategories("business owner", "jolly");
-
-		vcard.addImpp(Impp.aim("myhandle"));
-		vcard.addImpp(Impp.yahoo("myhandle@yahoo.com"));
-
-		vcard.addNote("I am proficient in Tiger-Crane Style," + NEWLINE + "and I am more than proficient in the exquisite art of the Samurai sword.");
-
-		vcard.setGeo(123.456, -98.123);
-
-		vcard.setTimezone(new Timezone(ZoneOffset.ofHours(-6), "America/Chicago"));
+		VCard vcard = VCardUtils.createFullDemoVCard();
 
 		InputStream in = getClass().getResourceAsStream("hcard-portrait.jpg");
 		Photo photo = new Photo(in, ImageType.JPEG);
@@ -474,9 +388,6 @@ public class HCardPageTest {
 		Sound sound = new Sound(in, SoundType.OGG);
 		vcard.addSound(sound);
 
-		vcard.setUid(new Uid("urn:uuid:ffce1595-cbe9-4418-9d0d-b015655d45f6"));
-
-		vcard.setRevision(new Revision(LocalDateTime.of(2000, 3, 15, 13, 22, 44).toInstant(ZoneOffset.UTC)));
 
 		return vcard;
 	}
