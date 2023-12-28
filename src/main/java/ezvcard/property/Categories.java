@@ -1,5 +1,6 @@
 package ezvcard.property;
 
+import java.util.Arrays;
 import java.util.List;
 
 import ezvcard.SupportedVersions;
@@ -53,7 +54,14 @@ import ezvcard.parameter.Pid;
  * categories.getValues().add("Ladies' man");
  * vcard.setCategories(categories);
  * </pre>
- * 
+ *
+ * <pre class="brush:java">
+ * Categories categories = new Categories("Developer","Java coder","Ladies' man");
+ * VCard vcard = new VCard(new FormattedName("Theo Test"), categories);
+ *
+ * for(String categoryName: categories.getValues()) {...}
+ * </pre>
+ *
  * <p>
  * <b>Property name:</b> {@code CATEGORIES}
  * </p>
@@ -76,6 +84,14 @@ public class Categories extends TextListProperty implements HasAltId, IPref {
 	 */
 	public Categories(Categories original) {
 		super(original);
+	}
+
+	/**
+	 * Constructor with categoryNames.
+	 * @param categoryNames of the categories
+	 */
+	public Categories(String ...categoryNames) {
+		getValues().addAll(Arrays.asList(categoryNames));
 	}
 
 	@Override
