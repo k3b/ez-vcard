@@ -65,9 +65,10 @@ import ezvcard.parameter.VCardParameters;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class Hobby extends TextProperty
-		implements HasAltId, IPref, IV4Type ,ILanguage {
+		implements HasAltId, IPref, IV4Type, ILanguage, IIndex {
 	/**
 	 * Creates a hobby property.
+	 *
 	 * @param hobby the hobby (e.g. "wind surfing")
 	 */
 	public Hobby(String hobby) {
@@ -99,16 +100,6 @@ public class Hobby extends TextProperty
 	 */
 	public void setLevel(HobbyLevel level) {
 		parameters.setLevel(level.getValue());
-	}
-
-	@Override
-	public Integer getIndex() {
-		return super.getIndex();
-	}
-
-	@Override
-	public void setIndex(Integer index) {
-		super.setIndex(index);
 	}
 
 	@Override

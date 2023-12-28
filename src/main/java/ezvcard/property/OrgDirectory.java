@@ -60,7 +60,7 @@ import ezvcard.VCardVersion;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class OrgDirectory extends UriProperty
-		implements HasAltId, IPref, IV4Type ,ILanguage {
+		implements HasAltId, IPref, IV4Type, ILanguage, IIndex {
 	/**
 	 * @param uri the URI
 	 */
@@ -74,16 +74,6 @@ public class OrgDirectory extends UriProperty
 	 */
 	public OrgDirectory(OrgDirectory original) {
 		super(original);
-	}
-
-	@Override
-	public Integer getIndex() {
-		return super.getIndex();
-	}
-
-	@Override
-	public void setIndex(Integer index) {
-		super.setIndex(index);
 	}
 
 	@Override

@@ -65,9 +65,10 @@ import ezvcard.parameter.VCardParameters;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class Expertise extends TextProperty
-		implements HasAltId, IPref, IV4Type,ILanguage {
+		implements HasAltId, IPref, IV4Type, ILanguage, IIndex {
 	/**
 	 * Creates an expertise property.
+	 *
 	 * @param skill the skill (e.g. "Java programming")
 	 */
 	public Expertise(String skill) {
@@ -100,16 +101,6 @@ public class Expertise extends TextProperty
 	public void setLevel(ExpertiseLevel level) {
 		String value = (level == null) ? null : level.getValue();
 		parameters.setLevel(value);
-	}
-
-	@Override
-	public Integer getIndex() {
-		return super.getIndex();
-	}
-
-	@Override
-	public void setIndex(Integer index) {
-		super.setIndex(index);
 	}
 
 	@Override
