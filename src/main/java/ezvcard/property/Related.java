@@ -8,7 +8,6 @@ import ezvcard.SupportedVersions;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
-import ezvcard.parameter.Pid;
 import ezvcard.parameter.RelatedType;
 import ezvcard.util.TelUri;
 
@@ -70,7 +69,7 @@ import ezvcard.util.TelUri;
  * related.getTypes().add(RelatedType.SIBLING);
  * vcard.addRelated(related);
  * </pre>
- * 
+ *
  * <p>
  * <b>Property name:</b> {@code RELATED}
  * </p>
@@ -81,18 +80,19 @@ import ezvcard.util.TelUri;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-42">RFC 6350 p.42</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Related extends VCardProperty implements HasAltId, IPref {
-	private String uri;
-	private String text;
+public class Related extends VCardProperty
+        implements HasAltId, IPref, IV4Pids {
+    private String uri;
+    private String text;
 
-	/**
-	 * Creates a related property
-	 */
-	public Related() {
-		//empty
-	}
+    /**
+     * Creates a related property
+     */
+    public Related() {
+        //empty
+    }
 
-	/**
+    /**
 	 * Creates a related property.
 	 * @param uri the URI representing the person
 	 */
@@ -185,11 +185,6 @@ public class Related extends VCardProperty implements HasAltId, IPref {
 				return RelatedType.get(value);
 			}
 		};
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

@@ -1,10 +1,7 @@
 package ezvcard.property;
 
-import java.util.List;
-
 import ezvcard.SupportedVersions;
 import ezvcard.VCardVersion;
-import ezvcard.parameter.Pid;
 
 /*
  Copyright (c) 2012-2023, Michael Angstadt
@@ -62,15 +59,16 @@ import ezvcard.parameter.Pid;
  * <p>
  * <b>Supported versions:</b> {@code 4.0}
  * </p>
- * 
+ *
  * @author Michael Angstadt
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-37">RFC 6350 p.37</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class Language extends TextProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type, IV4Pids {
 	/**
 	 * Creates a language property.
+	 *
 	 * @param language the language (e.g. "en-ca")
 	 */
 	public Language(String language) {
@@ -83,11 +81,6 @@ public class Language extends TextProperty
 	 */
 	public Language(Language original) {
 		super(original);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

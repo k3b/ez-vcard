@@ -1,10 +1,7 @@
 package ezvcard.property;
 
-import java.util.List;
-
 import ezvcard.SupportedVersions;
 import ezvcard.VCardVersion;
-import ezvcard.parameter.Pid;
 
 /*
  Copyright (c) 2012-2023, Michael Angstadt
@@ -63,9 +60,10 @@ import ezvcard.parameter.Pid;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class CalendarRequestUri extends UriProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type, IV4Pids {
 	/**
 	 * Creates a calendar request URI property.
+	 *
 	 * @param uri the calendar request URI
 	 */
 	public CalendarRequestUri(String uri) {
@@ -100,11 +98,6 @@ public class CalendarRequestUri extends UriProperty
 	 */
 	public void setMediaType(String mediaType) {
 		parameters.setMediaType(mediaType);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

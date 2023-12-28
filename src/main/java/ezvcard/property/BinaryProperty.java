@@ -14,7 +14,6 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
 import ezvcard.parameter.MediaTypeParameter;
-import ezvcard.parameter.Pid;
 import ezvcard.util.Gobble;
 
 /*
@@ -48,24 +47,25 @@ import ezvcard.util.Gobble;
 
 /**
  * Represents a property whose value contains binary data.
- * @author Michael Angstadt
+ *
  * @param <T> the class used for representing the content type of the resource
+ * @author Michael Angstadt
  */
 @SuppressWarnings(
-		{"Unused"}) // this is a lib
+        {"Unused"}) // this is a lib
 public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCardProperty
-		implements HasAltId,IPref, IV4Type {
-	/**
-	 * The decoded data.
-	 */
-	protected byte[] data;
+        implements HasAltId, IPref, IV4Type, IV4Pids {
+    /**
+     * The decoded data.
+     */
+    protected byte[] data;
 
-	/**
-	 * The URL to the resource.
-	 */
-	protected String url;
+    /**
+     * The URL to the resource.
+     */
+    protected String url;
 
-	/**
+    /**
 	 * The content type of the resource (for example, a JPEG image).
 	 */
 	protected T contentType;
@@ -178,11 +178,6 @@ public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCard
 	 */
 	public void setContentType(T contentType) {
 		this.contentType = contentType;
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

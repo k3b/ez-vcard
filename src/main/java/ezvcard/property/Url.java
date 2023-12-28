@@ -1,9 +1,5 @@
 package ezvcard.property;
 
-import java.util.List;
-
-import ezvcard.parameter.Pid;
-
 /*
  Copyright (c) 2012-2023, Michael Angstadt
  All rights reserved.
@@ -61,17 +57,18 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.21</a>
  */
 public class Url extends UriProperty
-		implements HasAltId, IPref, IV4Type {
-	/**
-	 * Creates a URL property.
-	 * @param url the URL (e.g. "http://example.com")
-	 */
-	public Url(String url) {
-		super(url);
-	}
+        implements HasAltId, IPref, IV4Type, IV4Pids {
+    /**
+     * Creates a URL property.
+     *
+     * @param url the URL (e.g. "http://example.com")
+     */
+    public Url(String url) {
+        super(url);
+    }
 
-	/**
-	 * Copy constructor.
+    /**
+     * Copy constructor.
 	 * @param original the property to make a copy of
 	 */
 	public Url(Url original) {
@@ -98,11 +95,6 @@ public class Url extends UriProperty
 	 */
 	public void setMediaType(String mediaType) {
 		parameters.setMediaType(mediaType);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

@@ -11,7 +11,6 @@ import java.util.Map;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
-import ezvcard.parameter.Pid;
 
 /*
  Copyright (c) 2012-2023, Michael Angstadt
@@ -69,7 +68,7 @@ import ezvcard.parameter.Pid;
  * <p>
  * <b>Supported versions:</b> {@code 2.1, 3.0, 4.0}
  * </p>
- * 
+ *
  * @author Michael Angstadt
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-22">RFC 6350 p.22</a>
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-16">RFC 2426 p.16</a>
@@ -78,16 +77,17 @@ import ezvcard.parameter.Pid;
 @SuppressWarnings(
 		{"Unused"}) // this is a lib
 public class Timezone extends VCardProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type, IV4Pids {
 	private ZoneOffset offset;
 	private String text;
 
 	/**
 	 * Creates a timezone property.
+	 *
 	 * @param text a free-form string representing the timezone, preferably a
-	 * timezone ID from the <a
-	 * href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Olson
-	 * Database</a> (e.g. "America/New_York")
+	 *             timezone ID from the <a
+	 *             href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Olson
+	 *             Database</a> (e.g. "America/New_York")
 	 */
 	public Timezone(String text) {
 		this(null, text);
@@ -215,11 +215,6 @@ public class Timezone extends VCardProperty
 	 */
 	public void setMediaType(String mediaType) {
 		parameters.setMediaType(mediaType);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

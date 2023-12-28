@@ -11,7 +11,6 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
 import ezvcard.parameter.ImppType;
-import ezvcard.parameter.Pid;
 
 /*
  Copyright (c) 2012-2023, Michael Angstadt
@@ -76,8 +75,9 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-36">RFC 6350 p.36</a>
  * @see <a href="http://tools.ietf.org/html/rfc4770">RFC 4770</a>
  */
-@SupportedVersions({ VCardVersion.V3_0, VCardVersion.V4_0 })
-public class Impp extends VCardProperty implements HasAltId, IPref {
+@SupportedVersions({VCardVersion.V3_0, VCardVersion.V4_0})
+public class Impp extends VCardProperty
+		implements HasAltId, IPref, IV4Pids {
 	private static final String AIM = "aim";
 	private static final String ICQ = "icq";
 	private static final String IRC = "irc";
@@ -367,11 +367,6 @@ public class Impp extends VCardProperty implements HasAltId, IPref {
 	 */
 	public void setMediaType(String mediaType) {
 		parameters.setMediaType(mediaType);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

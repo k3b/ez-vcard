@@ -7,7 +7,6 @@ import java.util.Map;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
-import ezvcard.parameter.Pid;
 import ezvcard.util.GeoUri;
 
 /*
@@ -93,12 +92,13 @@ import ezvcard.util.GeoUri;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.16</a>
  */
 public class Geo extends VCardProperty
-		implements HasAltId, IPref, IV4Type {
+		implements HasAltId, IPref, IV4Type, IV4Pids {
 	private GeoUri uri;
 
 	/**
 	 * Creates a geo property.
-	 * @param latitude the latitude
+	 *
+	 * @param latitude  the latitude
 	 * @param longitude the longitude
 	 */
 	public Geo(Double latitude, Double longitude) {
@@ -208,11 +208,6 @@ public class Geo extends VCardProperty
 	 */
 	public void setMediaType(String mediaType) {
 		parameters.setMediaType(mediaType);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

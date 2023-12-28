@@ -1,9 +1,5 @@
 package ezvcard.property;
 
-import java.util.List;
-
-import ezvcard.parameter.Pid;
-
 /*
  Copyright (c) 2012-2023, Michael Angstadt
  All rights reserved.
@@ -49,7 +45,7 @@ import ezvcard.parameter.Pid;
  * Source source = new Source("http://www.company.com/employees/doe_john.vcf");
  * vcard.addSource(source);
  * </pre>
- * 
+ *
  * <p>
  * <b>Property name:</b> {@code SOURCE}
  * </p>
@@ -60,9 +56,11 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-24">RFC 6350 p.24</a>
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-5">RFC 2426 p.5</a>
  */
-public class Source extends UriProperty implements HasAltId, IPref {
+public class Source extends UriProperty
+		implements HasAltId, IPref, IV4Pids {
 	/**
 	 * Creates a source property.
+	 *
 	 * @param url the URL
 	 */
 	public Source(String url) {
@@ -75,11 +73,6 @@ public class Source extends UriProperty implements HasAltId, IPref {
 	 */
 	public Source(Source original) {
 		super(original);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

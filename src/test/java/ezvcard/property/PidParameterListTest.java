@@ -4,10 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Test;
 
 import ezvcard.parameter.Pid;
 import ezvcard.parameter.VCardParameters;
@@ -68,10 +68,6 @@ public class PidParameterListTest {
 		}
 	}
 
-	private static class PidParameterListProperty extends VCardProperty {
-		@Override
-		public List<Pid> getPids() {
-			return super.getPids();
-		}
+	private static class PidParameterListProperty extends VCardProperty implements IV4Pids {
 	}
 }

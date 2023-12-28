@@ -1,9 +1,5 @@
 package ezvcard.property;
 
-import java.util.List;
-
-import ezvcard.parameter.Pid;
-
 /*
  Copyright (c) 2012-2023, Michael Angstadt
  All rights reserved.
@@ -54,33 +50,29 @@ import ezvcard.parameter.Pid;
  * <p>
  * <b>Supported versions:</b> {@code 2.1, 3.0, 4.0}
  * </p>
- * 
+ *
  * @author Michael Angstadt
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-39">RFC 6350 p.39</a>
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-17">RFC 2426 p.17</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.17</a>
  */
 public class Title extends TextProperty
-		implements HasAltId, IPref, IV4Type ,ILanguage {
-	/**
-	 * Creates a title property.
-	 * @param title the title (e.g. "Team Lead")
-	 */
-	public Title(String title) {
-		super(title);
-	}
+        implements HasAltId, IPref, IV4Type, ILanguage, IV4Pids {
+    /**
+     * Creates a title property.
+     *
+     * @param title the title (e.g. "Team Lead")
+     */
+    public Title(String title) {
+        super(title);
+    }
 
-	/**
-	 * Copy constructor.
+    /**
+     * Copy constructor.
 	 * @param original the property to make a copy of
 	 */
 	public Title(Title original) {
 		super(original);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

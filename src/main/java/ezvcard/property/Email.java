@@ -7,7 +7,6 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
 import ezvcard.parameter.EmailType;
-import ezvcard.parameter.Pid;
 
 /*
  Copyright (c) 2012-2023, Michael Angstadt
@@ -71,9 +70,11 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-15">RFC 2426 p.15</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.15</a>
  */
-public class Email extends TextProperty implements HasAltId, IPref {
+public class Email extends TextProperty
+		implements HasAltId, IPref, IV4Pids {
 	/**
 	 * Creates an email property.
+	 *
 	 * @param email the email (e.g. "johndoe@example.com")
 	 */
 	public Email(String email) {
@@ -112,11 +113,6 @@ public class Email extends TextProperty implements HasAltId, IPref {
 		if (types != null && types.length > 0) getTypes().addAll(Arrays.asList(types));
 
 		return this;
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

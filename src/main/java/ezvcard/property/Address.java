@@ -9,7 +9,6 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
 import ezvcard.parameter.AddressType;
-import ezvcard.parameter.Pid;
 import ezvcard.parameter.VCardParameters;
 import ezvcard.util.GeoUri;
 import ezvcard.util.StringUtils;
@@ -103,17 +102,17 @@ import ezvcard.util.StringUtils;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.11</a>
  */
 public class Address extends VCardProperty
-		implements HasAltId, IPref,ILanguage {
-	private final List<String> poBoxes;
-	private final List<String> extendedAddresses;
-	private final List<String> streetAddresses;
-	private final List<String> localities;
-	private final List<String> regions;
-	private final List<String> postalCodes;
-	private final List<String> countries;
+        implements HasAltId, IPref, ILanguage, IV4Pids {
+    private final List<String> poBoxes;
+    private final List<String> extendedAddresses;
+    private final List<String> streetAddresses;
+    private final List<String> localities;
+    private final List<String> regions;
+    private final List<String> postalCodes;
+    private final List<String> countries;
 
-	public Address() {
-		poBoxes = new ArrayList<>(1);
+    public Address() {
+        poBoxes = new ArrayList<>(1);
 		extendedAddresses = new ArrayList<>(1);
 		streetAddresses = new ArrayList<>(1);
 		localities = new ArrayList<>(1);
@@ -397,11 +396,6 @@ public class Address extends VCardProperty
 	 */
 	public void setGeo(GeoUri uri) {
 		parameters.setGeo(uri);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	/**

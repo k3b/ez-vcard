@@ -1,9 +1,5 @@
 package ezvcard.property;
 
-import java.util.List;
-
-import ezvcard.parameter.Pid;
-
 /*
  Copyright (c) 2012-2023, Michael Angstadt
  All rights reserved.
@@ -61,9 +57,10 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.17</a>
  */
 public class Role extends TextProperty
-		implements HasAltId, IPref, IV4Type ,ILanguage {
+		implements HasAltId, IPref, IV4Type, ILanguage, IV4Pids {
 	/**
 	 * Creates a role property.
+	 *
 	 * @param role the role (e.g. "Software Developer")
 	 */
 	public Role(String role) {
@@ -76,11 +73,6 @@ public class Role extends TextProperty
 	 */
 	public Role(Role original) {
 		super(original);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

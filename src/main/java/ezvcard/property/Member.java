@@ -6,7 +6,6 @@ import ezvcard.SupportedVersions;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
-import ezvcard.parameter.Pid;
 import ezvcard.util.TelUri;
 
 /*
@@ -62,7 +61,7 @@ import ezvcard.util.TelUri;
  * member = new Member("urn:uuid:03a0e51f-d1aa-4385-8a53-e29025acd8af");
  * vcard.addMember(member);
  * </pre>
- * 
+ *
  * <p>
  * <b>Property name:</b> {@code MEMBER}
  * </p>
@@ -73,9 +72,11 @@ import ezvcard.util.TelUri;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-41">RFC 6350 p.41</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Member extends UriProperty implements HasAltId, IPref {
+public class Member extends UriProperty
+		implements HasAltId, IPref, IV4Pids {
 	/**
 	 * Creates a member property.
+	 *
 	 * @param uri the URI representing the member
 	 */
 	public Member(String uri) {
@@ -132,11 +133,6 @@ public class Member extends UriProperty implements HasAltId, IPref {
 	 */
 	public void setUri(String uri) {
 		setValue(uri);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	/**

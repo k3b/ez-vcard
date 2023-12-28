@@ -1,10 +1,7 @@
 package ezvcard.property;
 
-import java.util.List;
-
 import ezvcard.SupportedVersions;
 import ezvcard.VCardVersion;
-import ezvcard.parameter.Pid;
 
 /*
  Copyright (c) 2012-2023, Michael Angstadt
@@ -64,24 +61,20 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-29">RFC 6350 p.29</a>
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-9">RFC 2426 p.9</a>
  */
-@SupportedVersions({ VCardVersion.V3_0, VCardVersion.V4_0 })
+@SupportedVersions({VCardVersion.V3_0, VCardVersion.V4_0})
 public class Nickname extends TextListProperty
-		implements HasAltId, IPref, IV4Type ,ILanguage {
+		implements HasAltId, IPref, IV4Type, ILanguage, IV4Pids {
 	public Nickname() {
 		//empty
 	}
 
 	/**
 	 * Copy constructor.
+	 *
 	 * @param original the property to make a copy of
 	 */
 	public Nickname(Nickname original) {
 		super(original);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override

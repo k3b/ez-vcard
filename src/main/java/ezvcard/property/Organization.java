@@ -2,8 +2,6 @@ package ezvcard.property;
 
 import java.util.List;
 
-import ezvcard.parameter.Pid;
-
 /*
  Copyright (c) 2012-2023, Michael Angstadt
  All rights reserved.
@@ -65,22 +63,18 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.19</a>
  */
 public class Organization extends TextListProperty
-		implements HasAltId, IPref, IV4Type,ILanguage {
+		implements HasAltId, IPref, IV4Type, ILanguage, IV4Pids {
 	public Organization() {
 		//empty
 	}
 
 	/**
 	 * Copy constructor.
+	 *
 	 * @param original the property to make a copy of
 	 */
 	public Organization(Organization original) {
 		super(original);
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	/**

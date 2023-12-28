@@ -8,7 +8,6 @@ import java.util.Map;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.ValidationWarning;
-import ezvcard.parameter.Pid;
 import ezvcard.parameter.TelephoneType;
 import ezvcard.util.TelUri;
 
@@ -85,12 +84,14 @@ import ezvcard.util.TelUri;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-14">RFC 2426 p.14</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.13</a>
  */
-public class Telephone extends VCardProperty implements HasAltId, IPref {
+public class Telephone extends VCardProperty
+		implements HasAltId, IPref, IV4Pids {
 	private String text;
 	private TelUri uri;
 
 	/**
 	 * Creates a telephone property.
+	 *
 	 * @param text the telephone number (e.g. "(123) 555-6789")
 	 */
 	public Telephone(String text) {
@@ -181,11 +182,6 @@ public class Telephone extends VCardProperty implements HasAltId, IPref {
 		if (types != null && types.length > 0) getTypes().addAll(Arrays.asList(types));
 
 		return this;
-	}
-
-	@Override
-	public List<Pid> getPids() {
-		return super.getPids();
 	}
 
 	@Override
