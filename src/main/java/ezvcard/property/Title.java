@@ -60,7 +60,8 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-17">RFC 2426 p.17</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.17</a>
  */
-public class Title extends TextProperty implements HasAltId, IPref {
+public class Title extends TextProperty
+		implements HasAltId, IPref, IV4Type {
 	/**
 	 * Creates a title property.
 	 * @param title the title (e.g. "Team Lead")
@@ -85,30 +86,6 @@ public class Title extends TextProperty implements HasAltId, IPref {
 	@Override
 	public void setLanguage(String language) {
 		super.setLanguage(language);
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

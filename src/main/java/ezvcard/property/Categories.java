@@ -73,7 +73,8 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-20">RFC 2426 p.20</a>
  */
 @SupportedVersions({ VCardVersion.V3_0, VCardVersion.V4_0 })
-public class Categories extends TextListProperty implements HasAltId, IPref {
+public class Categories extends TextListProperty
+		implements HasAltId, IPref, IV4Type {
 	public Categories() {
 		//empty
 	}
@@ -97,30 +98,6 @@ public class Categories extends TextListProperty implements HasAltId, IPref {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

@@ -67,7 +67,8 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-37">RFC 6350 p.37</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Language extends TextProperty implements HasAltId, IPref {
+public class Language extends TextProperty
+		implements HasAltId, IPref, IV4Type {
 	/**
 	 * Creates a language property.
 	 * @param language the language (e.g. "en-ca")
@@ -82,30 +83,6 @@ public class Language extends TextProperty implements HasAltId, IPref {
 	 */
 	public Language(Language original) {
 		super(original);
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

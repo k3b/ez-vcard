@@ -92,7 +92,8 @@ import ezvcard.util.GeoUri;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-16">RFC 2426 p.16</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.16</a>
  */
-public class Geo extends VCardProperty implements HasAltId, IPref {
+public class Geo extends VCardProperty
+		implements HasAltId, IPref, IV4Type {
 	private GeoUri uri;
 
 	/**
@@ -185,30 +186,6 @@ public class Geo extends VCardProperty implements HasAltId, IPref {
 	 */
 	public void setGeoUri(GeoUri uri) {
 		this.uri = uri;
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	/**

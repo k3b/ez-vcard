@@ -59,7 +59,8 @@ import ezvcard.VCardVersion;
  * @see <a href="http://tools.ietf.org/html/rfc6715#page-6">RFC 6715 p.6</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class OrgDirectory extends UriProperty implements HasAltId, IPref {
+public class OrgDirectory extends UriProperty
+		implements HasAltId, IPref, IV4Type {
 	/**
 	 * @param uri the URI
 	 */
@@ -83,24 +84,6 @@ public class OrgDirectory extends UriProperty implements HasAltId, IPref {
 	@Override
 	public void setIndex(Integer index) {
 		super.setIndex(index);
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

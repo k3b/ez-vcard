@@ -60,7 +60,8 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-21">RFC 2426 p.21</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.19</a>
  */
-public class Note extends TextProperty implements HasAltId, IPref {
+public class Note extends TextProperty
+		implements HasAltId, IPref, IV4Type {
 	/**
 	 * Creates a note property.
 	 * @param note the note text
@@ -80,30 +81,6 @@ public class Note extends TextProperty implements HasAltId, IPref {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

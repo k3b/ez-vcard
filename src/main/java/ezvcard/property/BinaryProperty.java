@@ -54,7 +54,7 @@ import ezvcard.util.Gobble;
 @SuppressWarnings(
 		{"Unused"}) // this is a lib
 public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCardProperty
-		implements HasAltId,IPref {
+		implements HasAltId,IPref, IV4Type {
 	/**
 	 * The decoded data.
 	 */
@@ -110,6 +110,7 @@ public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCard
 	 * @param type the content type
 	 * @throws IOException if there is a problem reading from the file
 	 */
+	@SuppressWarnings("NewApi")
 	public BinaryProperty(Path file, T type) throws IOException {
 		this(new BufferedInputStream(Files.newInputStream(file)), type);
 	}
@@ -177,32 +178,6 @@ public abstract class BinaryProperty<T extends MediaTypeParameter> extends VCard
 	 */
 	public void setContentType(T contentType) {
 		this.contentType = contentType;
-	}
-
-	/**
-	 * Gets the vCard 4.0 TYPE parameter. This should NOT be used to get the
-	 * TYPE parameter for 2.1/3.0 vCards. Use {@link #getContentType} instead.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the vCard 4.0 TYPE parameter. This should NOT be used to set the
-	 * TYPE parameter for 2.1/3.0 vCards. Use {@link #setContentType} instead.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (should be either "work" or "home") or null to
-	 * remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

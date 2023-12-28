@@ -64,7 +64,8 @@ import ezvcard.parameter.VCardParameters;
  * @see <a href="http://tools.ietf.org/html/rfc6715#page-4">RFC 6715 p.4</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class Hobby extends TextProperty implements HasAltId, IPref {
+public class Hobby extends TextProperty
+		implements HasAltId, IPref, IV4Type {
 	/**
 	 * Creates a hobby property.
 	 * @param hobby the hobby (e.g. "wind surfing")
@@ -108,24 +109,6 @@ public class Hobby extends TextProperty implements HasAltId, IPref {
 	@Override
 	public void setIndex(Integer index) {
 		super.setIndex(index);
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

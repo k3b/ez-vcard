@@ -61,7 +61,8 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc6350#page-49">RFC 6350 p.49</a>
  */
 @SupportedVersions(VCardVersion.V4_0)
-public class FreeBusyUrl extends UriProperty implements HasAltId, IPref {
+public class FreeBusyUrl extends UriProperty
+		implements HasAltId, IPref, IV4Type {
 	/**
 	 * Creates a free/busy URL property.
 	 * @param uri the URI
@@ -103,30 +104,6 @@ public class FreeBusyUrl extends UriProperty implements HasAltId, IPref {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

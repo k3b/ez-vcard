@@ -60,7 +60,8 @@ import ezvcard.parameter.Pid;
  * @see <a href="http://tools.ietf.org/html/rfc2426#page-25">RFC 2426 p.25</a>
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.21</a>
  */
-public class Url extends UriProperty implements HasAltId, IPref {
+public class Url extends UriProperty
+		implements HasAltId, IPref, IV4Type {
 	/**
 	 * Creates a URL property.
 	 * @param url the URL (e.g. "http://example.com")
@@ -102,41 +103,6 @@ public class Url extends UriProperty implements HasAltId, IPref {
 	@Override
 	public List<Pid> getPids() {
 		return super.getPids();
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0*}
-	 * </p>
-	 * 
-	 * <p>
-	 * <i>* Some mail clients will add this parameter to URL properties in 2.1
-	 * and 3.0 vCards, however.</i>
-	 * </p>
-	 * 
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0*}
-	 * </p>
-	 * 
-	 * <p>
-	 * <i>* Some mail clients will add this parameter to URL properties in 2.1
-	 * and 3.0 vCards, however.</i>
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	@Override

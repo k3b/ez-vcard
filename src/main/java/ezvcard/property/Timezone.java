@@ -77,7 +77,8 @@ import ezvcard.parameter.Pid;
  */
 @SuppressWarnings(
 		{"Unused"}) // this is a lib
-public class Timezone extends VCardProperty implements HasAltId, IPref {
+public class Timezone extends VCardProperty
+		implements HasAltId, IPref, IV4Type {
 	private ZoneOffset offset;
 	private String text;
 
@@ -192,30 +193,6 @@ public class Timezone extends VCardProperty implements HasAltId, IPref {
 		}
 
 		return null;
-	}
-
-	/**
-	 * Gets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the TYPE value (typically, this will be either "work" or "home")
-	 * or null if it doesn't exist
-	 */
-	public String getType() {
-		return parameters.getType();
-	}
-
-	/**
-	 * Sets the TYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param type the TYPE value (this should be either "work" or "home") or
-	 * null to remove
-	 */
-	public void setType(String type) {
-		parameters.setType(type);
 	}
 
 	/**
