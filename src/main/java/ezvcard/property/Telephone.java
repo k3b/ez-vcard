@@ -66,7 +66,14 @@ import ezvcard.util.TelUri;
  * tel.setPref(1); //the most preferred
  * vcard.addTelephoneNumber(tel);
  * </pre>
- * 
+ *
+ * <pre class="brush:java">
+ * Telephone tel = new Telephone("(123) 555-6789")
+ * 					.addType(TelephoneType.HOME, TelephoneType.CELL)
+ * 					.setPref(1); //the most preferred
+ * VCard vcard = new VCard(new FormattedName("Theo Test"), tel);
+ * </pre>
+ *
  * <p>
  * <b>Property name:</b> {@code TEL}
  * </p>
