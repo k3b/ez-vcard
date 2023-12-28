@@ -60,44 +60,22 @@ import ezvcard.VCardVersion;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class CalendarRequestUri extends UriProperty
-		implements HasAltId, IPref, IV4Type, IV4Pids {
-	/**
-	 * Creates a calendar request URI property.
-	 *
-	 * @param uri the calendar request URI
-	 */
-	public CalendarRequestUri(String uri) {
-		super(uri);
-	}
+        implements HasAltId, IPref, IV4Type, IV4Pids, IV4MediaType {
+    /**
+     * Creates a calendar request URI property.
+     *
+     * @param uri the calendar request URI
+     */
+    public CalendarRequestUri(String uri) {
+        super(uri);
+    }
 
-	/**
+    /**
 	 * Copy constructor.
 	 * @param original the property to make a copy of
 	 */
 	public CalendarRequestUri(CalendarRequestUri original) {
 		super(original);
-	}
-
-	/**
-	 * Gets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the media type or null if not set
-	 */
-	public String getMediaType() {
-		return parameters.getMediaType();
-	}
-
-	/**
-	 * Sets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param mediaType the media type or null to remove
-	 */
-	public void setMediaType(String mediaType) {
-		parameters.setMediaType(mediaType);
 	}
 
 	@Override

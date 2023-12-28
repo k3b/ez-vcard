@@ -77,7 +77,7 @@ import ezvcard.parameter.ImppType;
  */
 @SupportedVersions({VCardVersion.V3_0, VCardVersion.V4_0})
 public class Impp extends VCardProperty
-		implements HasAltId, IPref, IV4Pids {
+		implements HasAltId, IPref, IV4Pids, IV4MediaType {
 	private static final String AIM = "aim";
 	private static final String ICQ = "icq";
 	private static final String IRC = "irc";
@@ -345,28 +345,6 @@ public class Impp extends VCardProperty
 				return ImppType.get(value);
 			}
 		};
-	}
-
-	/**
-	 * Gets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the media type or null if not set
-	 */
-	public String getMediaType() {
-		return parameters.getMediaType();
-	}
-
-	/**
-	 * Sets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param mediaType the media type or null to remove
-	 */
-	public void setMediaType(String mediaType) {
-		parameters.setMediaType(mediaType);
 	}
 
 	@Override

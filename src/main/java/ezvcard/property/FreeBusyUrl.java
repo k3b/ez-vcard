@@ -59,44 +59,22 @@ import ezvcard.VCardVersion;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class FreeBusyUrl extends UriProperty
-		implements HasAltId, IPref, IV4Type, IV4Pids {
-	/**
-	 * Creates a free/busy URL property.
-	 *
-	 * @param uri the URI
-	 */
-	public FreeBusyUrl(String uri) {
-		super(uri);
-	}
+        implements HasAltId, IPref, IV4Type, IV4Pids, IV4MediaType {
+    /**
+     * Creates a free/busy URL property.
+     *
+     * @param uri the URI
+     */
+    public FreeBusyUrl(String uri) {
+        super(uri);
+    }
 
-	/**
+    /**
 	 * Copy constructor.
 	 * @param original the property to make a copy of
 	 */
 	public FreeBusyUrl(FreeBusyUrl original) {
 		super(original);
-	}
-
-	/**
-	 * Gets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the media type or null if not set
-	 */
-	public String getMediaType() {
-		return parameters.getMediaType();
-	}
-
-	/**
-	 * Sets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param mediaType the media type or null to remove
-	 */
-	public void setMediaType(String mediaType) {
-		parameters.setMediaType(mediaType);
 	}
 
 	@Override

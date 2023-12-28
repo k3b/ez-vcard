@@ -57,44 +57,22 @@ package ezvcard.property;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.21</a>
  */
 public class Url extends UriProperty
-        implements HasAltId, IPref, IV4Type, IV4Pids {
-    /**
-     * Creates a URL property.
-     *
-     * @param url the URL (e.g. "http://example.com")
-     */
-    public Url(String url) {
-        super(url);
-    }
+		implements HasAltId, IPref, IV4Type, IV4Pids, IV4MediaType {
+	/**
+	 * Creates a URL property.
+	 *
+	 * @param url the URL (e.g. "http://example.com")
+	 */
+	public Url(String url) {
+		super(url);
+	}
 
-    /**
+	/**
      * Copy constructor.
 	 * @param original the property to make a copy of
 	 */
 	public Url(Url original) {
 		super(original);
-	}
-
-	/**
-	 * Gets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the media type or null if not set
-	 */
-	public String getMediaType() {
-		return parameters.getMediaType();
-	}
-
-	/**
-	 * Sets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param mediaType the media type or null to remove
-	 */
-	public void setMediaType(String mediaType) {
-		parameters.setMediaType(mediaType);
 	}
 
 	@Override

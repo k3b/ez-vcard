@@ -92,17 +92,17 @@ import ezvcard.util.GeoUri;
  * @see <a href="http://www.imc.org/pdi/vcard-21.doc">vCard 2.1 p.16</a>
  */
 public class Geo extends VCardProperty
-		implements HasAltId, IPref, IV4Type, IV4Pids {
-	private GeoUri uri;
+        implements HasAltId, IPref, IV4Type, IV4Pids, IV4MediaType {
+    private GeoUri uri;
 
-	/**
-	 * Creates a geo property.
-	 *
-	 * @param latitude  the latitude
-	 * @param longitude the longitude
-	 */
-	public Geo(Double latitude, Double longitude) {
-		this(new GeoUri.Builder(latitude, longitude).build());
+    /**
+     * Creates a geo property.
+     *
+     * @param latitude  the latitude
+     * @param longitude the longitude
+     */
+    public Geo(Double latitude, Double longitude) {
+        this(new GeoUri.Builder(latitude, longitude).build());
 	}
 
 	/**
@@ -186,28 +186,6 @@ public class Geo extends VCardProperty
 	 */
 	public void setGeoUri(GeoUri uri) {
 		this.uri = uri;
-	}
-
-	/**
-	 * Gets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the media type or null if not set
-	 */
-	public String getMediaType() {
-		return parameters.getMediaType();
-	}
-
-	/**
-	 * Sets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param mediaType the media type or null to remove
-	 */
-	public void setMediaType(String mediaType) {
-		parameters.setMediaType(mediaType);
 	}
 
 	@Override

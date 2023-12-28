@@ -73,7 +73,7 @@ import ezvcard.util.TelUri;
  */
 @SupportedVersions(VCardVersion.V4_0)
 public class Member extends UriProperty
-		implements HasAltId, IPref, IV4Pids {
+		implements HasAltId, IPref, IV4Pids, IV4MediaType {
 	/**
 	 * Creates a member property.
 	 *
@@ -133,28 +133,6 @@ public class Member extends UriProperty
 	 */
 	public void setUri(String uri) {
 		setValue(uri);
-	}
-
-	/**
-	 * Gets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the media type or null if not set
-	 */
-	public String getMediaType() {
-		return parameters.getMediaType();
-	}
-
-	/**
-	 * Sets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param mediaType the media type or null to remove
-	 */
-	public void setMediaType(String mediaType) {
-		parameters.setMediaType(mediaType);
 	}
 
 	@Override

@@ -77,7 +77,7 @@ import ezvcard.ValidationWarning;
 @SuppressWarnings(
 		{"Unused"}) // this is a lib
 public class Timezone extends VCardProperty
-		implements HasAltId, IPref, IV4Type, IV4Pids {
+		implements HasAltId, IPref, IV4Type, IV4Pids, IV4MediaType {
 	private ZoneOffset offset;
 	private String text;
 
@@ -193,28 +193,6 @@ public class Timezone extends VCardProperty
 		}
 
 		return null;
-	}
-
-	/**
-	 * Gets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @return the media type or null if not set
-	 */
-	public String getMediaType() {
-		return parameters.getMediaType();
-	}
-
-	/**
-	 * Sets the MEDIATYPE parameter.
-	 * <p>
-	 * <b>Supported versions:</b> {@code 4.0}
-	 * </p>
-	 * @param mediaType the media type or null to remove
-	 */
-	public void setMediaType(String mediaType) {
-		parameters.setMediaType(mediaType);
 	}
 
 	@Override
